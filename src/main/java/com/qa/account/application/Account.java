@@ -1,4 +1,4 @@
-package com.qa.accountApplication;
+package com.qa.account.application;
 
 public class Account {
 	private String firstName;
