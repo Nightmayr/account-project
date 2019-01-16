@@ -3,9 +3,9 @@ package com.qa.account.application;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class App {
+public class JSONUtil {
 
-	public static void main(String[] args) {
+	public void JSONOutput() {
 		
 		Service service = new Service();
 		Gson gson = new GsonBuilder().create();
