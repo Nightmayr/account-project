@@ -26,10 +26,12 @@ public class Service {
 	public int firstNameSearch(String fName) {
 		int counter = 0;
 		for(int i = 0; i<repo.accountMap.size();i++) {
-
+			if(repo.accountMap.get(i)!=null) {
+				if(repo.accountMap.get(i).getFirstName()==fName) {
+					counter++;
 				}
-	
-
+			}
+		}
 		return counter;
 	}
 }
