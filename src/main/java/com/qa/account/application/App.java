@@ -1,9 +1,14 @@
 package com.qa.account.application;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 public class App {
 
 	public static void main(String[] args) {
 //		System.out.println("Hello world to the standard out");
+		Gson gson = new GsonBuilder().create();
+		
 		Service service = new Service();
 		Account account1 = new Account("Umayr", "Saghir", 1);
 		Account account2 = new Account("JSON", "Dairy", 4);
@@ -17,10 +22,10 @@ public class App {
 		System.out.println(service.retrieveAccount(1));
 		System.out.println(service.retrieveAccount(2));
 
+//		service.deleteAccount(1);
+//		System.out.println(service.retrieveAccount(1));
 		
-		service.deleteAccount(1);
-		System.out.println(service.retrieveAccount(1));
-
+		gson.toJson(service.repo.accountMap, System.out);
 	}
 
 }
