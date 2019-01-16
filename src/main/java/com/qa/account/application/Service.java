@@ -23,5 +23,13 @@ public class Service {
 		return size;
 	}
 	
+	public int firstNameSearch(String fName) {
+		int counter = 0;
+		for(int i = 0; i<repo.accountMap.size();i++) {
+
+				}
 	
+
+		return counter;
+	}
 }
