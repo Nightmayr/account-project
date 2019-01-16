@@ -1,4 +1,4 @@
-package com.qa.accountAppTest;
+package com.qa.account.app.test;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -13,6 +13,7 @@ public class AppTest {
 	public Account account1;
 	public Account account2;
 	public Account account3;
+	public Account account4;
 
 	@Before
 	public void setup() {
@@ -20,6 +21,7 @@ public class AppTest {
 		account1 = new Account("Umayr", "Saghir", 1);
 		account2 = new Account("JSON", "Dairy", 2);
 		account3 = new Account("Henry", "Cheeeeeya", 3);
+		account4 = new Account("Umayr", "Nightmayr",4);
 	}
 
 	// @Test
@@ -77,5 +79,18 @@ public class AppTest {
 	public void accountSetLastnameTest() {
 		account3.setLastName("McGee");
 		assertEquals("McGee",account3.getLastName());
+	}
+	
+	@Test
+	public void firstNameSearchTest() {
+		service.addAccount(account1);
+		assertEquals(1,service.firstNameSearch("Umayr"));
+	}
+	
+	@Test
+	public void firstNameSearchTest2() {
+		service.addAccount(account1);
+		service.addAccount(account4);
+		assertEquals(2,service.firstNameSearch("Umayr"));
 	}
 }
