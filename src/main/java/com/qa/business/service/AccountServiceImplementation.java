@@ -30,7 +30,7 @@ public class AccountServiceImplementation implements AccountService{
 //			return repo.addAccount(account);			
 //		}
 		if(checkAccountNumber(accountNum)) {
-			return "{ Message: Account Blocked! }";
+			return "{\"message\": \"account blocked!\"}";	
 		}
 		return repo.addAccount(account);
 	}
