@@ -13,12 +13,12 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import com.qa.persistence.domain.Film;
+import com.qa.persistence.domain.Account;
 import com.qa.util.JSONUtil;
 
 @Transactional(SUPPORTS)
 @Default
-public class FilmDBRepository implements FilmRepository {
+public class AccountDBRepository implements AccountRepository {
 
 	@PersistenceContext(unitName = "primary")
 	private EntityManager manager;
@@ -26,30 +26,30 @@ public class FilmDBRepository implements FilmRepository {
 	@Inject
 	private JSONUtil util;
 	
-	public String getAllFilms() {
-		Query query = manager.createQuery("SELECT f FROM Film f");
-		Collection<Film> films = (Collection<Film>)query.getResultList();
-		return util.getJSONForObject(films);
+	public String getAllAccounts() {
+		Query query = manager.createQuery("SELECT a FROM Account a");
+		Collection<Account> accounts = (Collection<Account>)query.getResultList();
+		return util.getJSONForObject(accounts);
 	}
 	
 	@Transactional(REQUIRED)
-	public String addFilm(String film) {
-		Film afilm = util.getObjectForJSON(film, Film.class);
-		manager.persist(afilm);
+	public String addAccount(String account) {
+		Account aAccount = util.getObjectForJSON(account, Account.class);
+		manager.persist(aAccount);
 		return "Created it m8";
 	}
 	
 	@Transactional(REQUIRED)
-	public String deleteFilm(Long id) {
-		Film film = findFilm(id); 
-		if (film != null) {
-			manager.remove(film);
+	public String deleteAccount(Long id) {
+		Account account = findAccount(id); 
+		if (account != null) {
+			manager.remove(account);
 		}
 		return "Deleted it m8";
 	}
 	
-	private Film findFilm(Long id) {
-		return manager.find(Film.class, id);
+	private Account findAccount(Long id) {
+		return manager.find(Account.class, id);
 	}
 	
 	public EntityManager getManager() {

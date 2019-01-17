@@ -8,36 +8,37 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import com.qa.business.service.FilmService;
+import com.qa.business.service.AccountService;
 
-@Path("/film")
-public class FilmEndpoint {
+@Path("/account")
+public class AccountEndpoint {
+	
 	@Inject
-	private FilmService service;
+	private AccountService service;
 
-	@Path("/getAllFilms")
+	@Path("/getAllAccounts")
 	@GET
 	@Produces({"application/json"})
 	public String getAllFilms()
 	{
-		return service.getAllFilms();
+		return service.getAllAccounts();
 	}
 	
-	@Path("/addFilm")
+	@Path("/addAccount")
 	@POST
 	@Produces({"application/json"})
 	public String addFilm(String film) {
-		return service.addFilm(film);
+		return service.addAccount(film);
 	}
 	
-	@Path("/deleteFilm/{id}")
+	@Path("/deleteAccount/{id}")
 	@DELETE
 	@Produces({"application/json"})
 	public String deleteFilm(@PathParam("id") Long id) {
-		return service.deleteFilm(id);
+		return service.deleteAccount(id);
 	}
 	
-	public void setService(FilmService service) {
+	public void setService(AccountService service) {
 		this.service = service;
 	}
 	

@@ -1,20 +1,30 @@
 package com.qa.persistence.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Account {
+	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	private Long id;
 	private String firstName;
 	private String lastName;
-	private int accountNumber;
+	private String accountNumber;
 	
-	public Account(String firstName, String lastName, int accountNuber) {
+	public Account() {
+		
+	}
+
+	public Account(String firstName, String lastName, String accountNuber) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.accountNumber = accountNuber;
 	}
 	
-	@Override
-	public String toString() {
-		return "Account [firstName=" + firstName + ", lastName=" + lastName + ", accountNumber=" + accountNumber + "]";
-	}
 
 	public String getFirstName() {
 		return firstName;
@@ -32,12 +42,20 @@ public class Account {
 		this.lastName = lastName;
 	}
 	
-	public int getAccountNumber() {
+	public String getAccountNumber() {
 		return accountNumber;
 	}
 	
-	public void setAccountNumber(int accountNumber) {
+	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 

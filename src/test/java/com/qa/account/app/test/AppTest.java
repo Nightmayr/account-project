@@ -1,4 +1,4 @@
-package com.qa.account.app.test;
+/*package com.qa.account.app.test;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -94,3 +94,4 @@ public class AppTest {
 		assertEquals(2,service.firstNameSearch("Umayr"));
 	}
 }
+*/

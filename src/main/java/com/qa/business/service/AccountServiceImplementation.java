@@ -1,40 +1,31 @@
 package com.qa.business.service;
 
+import javax.inject.Inject;
+
 import com.qa.account.application.Repo;
 import com.qa.persistence.domain.Account;
+import com.qa.persistence.repository.AccountRepository;
 
-public class AccountServiceImplementation {
+public class AccountServiceImplementation implements AccountService{
 	
-	Repo repo = new Repo();
-	int counter = 0;
 	
-	public void addAccount(Account account) {
-		repo.accountMap.put(counter, account);
-		counter++;
+	@Inject
+	AccountRepository repo;
+	
+	@Override
+	public String getAllAccounts() {
+		
+		return repo.getAllAccounts();
+	}
+	@Override
+	public String addAccount(String account) {
+		
+		return repo.addAccount(account);
+	}
+	@Override
+	public String deleteAccount(Long id) {
+		
+		return repo.deleteAccount(id);
 	}
 	
-	public Account getAccount(int accountId) {
-		return repo.accountMap.get(accountId);
-	}
-	
-	public void deleteAccount(int accountId) {
-		repo.accountMap.remove(accountId);
-	}
-	
-	public int getMapSize() {
-		int size = this.repo.accountMap.size();
-		return size;
-	}
-	
-	public int firstNameSearch(String fName) {
-		int counter = 0;
-		for(int i = 0; i<repo.accountMap.size();i++) {
-			if(repo.accountMap.get(i)!=null) {
-				if(repo.accountMap.get(i).getFirstName()==fName) {
-					counter++;
-				}
-			}
-		}
-		return counter;
-	}
 }
