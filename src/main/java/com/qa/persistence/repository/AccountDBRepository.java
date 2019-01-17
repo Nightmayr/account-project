@@ -48,6 +48,7 @@ public class AccountDBRepository implements AccountRepository {
 		return "{\"message\": \"account sucessfully deleted\"}";	}
 	
 	@Override
+	@Transactional(REQUIRED)
 	public String updateAccount(Long id, String account) {
 		Account foundAccount = findAccount(id);
 		Account jsonAccount = util.getObjectForJSON(account, Account.class);
