@@ -2,7 +2,6 @@ package com.qa.business.service;
 
 import javax.inject.Inject;
 
-import com.qa.persistence.domain.Account;
 import com.qa.persistence.repository.AccountRepository;
 
 public class AccountServiceImplementation implements AccountService{
