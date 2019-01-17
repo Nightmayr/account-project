@@ -2,7 +2,6 @@ package com.qa.business.service;
 
 import javax.inject.Inject;
 
-import com.qa.account.application.Repo;
 import com.qa.persistence.domain.Account;
 import com.qa.persistence.repository.AccountRepository;
 
