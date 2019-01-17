@@ -25,5 +25,10 @@ public class AccountServiceImplementation implements AccountService{
 		
 		return repo.deleteAccount(id);
 	}
+	@Override
+	public String updateAccount(Long id, String account) {
+		
+		return repo.updateAccount(id, account);
+	}
 	
 }

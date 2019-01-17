@@ -36,7 +36,7 @@ public class AccountDBRepository implements AccountRepository {
 	public String addAccount(String account) {
 		Account aAccount = util.getObjectForJSON(account, Account.class);
 		manager.persist(aAccount);
-		return "Created it m8";
+		return "{\"message\": \"account sucessfully added\"}";
 	}
 	
 	@Transactional(REQUIRED)
@@ -45,7 +45,18 @@ public class AccountDBRepository implements AccountRepository {
 		if (account != null) {
 			manager.remove(account);
 		}
-		return "Deleted it m8";
+		return "{\"message\": \"account sucessfully deleted\"}";	}
+	
+	@Override
+	public String updateAccount(Long id, String account) {
+		Account foundAccount = findAccount(id);
+		Account jsonAccount = util.getObjectForJSON(account, Account.class);
+		if(foundAccount!=null) {
+			manager.remove(foundAccount);
+			manager.persist(jsonAccount);
+			return "{\"message\": \"account sucessfully updated\"}";
+		}
+		return null;
 	}
 	
 	private Account findAccount(Long id) {
@@ -67,5 +78,6 @@ public class AccountDBRepository implements AccountRepository {
 	public void setUtil(JSONUtil util) {
 		this.util = util;
 	}
+
 
 }
