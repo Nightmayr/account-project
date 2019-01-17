@@ -45,7 +45,8 @@ public class AccountDBRepository implements AccountRepository {
 		if (account != null) {
 			manager.remove(account);
 		}
-		return "{\"message\": \"account sucessfully deleted\"}";	}
+		return "{\"message\": \"account sucessfully deleted\"}";	
+		}
 	
 	@Override
 	@Transactional(REQUIRED)
