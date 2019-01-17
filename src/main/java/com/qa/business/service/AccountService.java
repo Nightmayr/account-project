@@ -1,6 +1,9 @@
-package com.qa.account.application;
+package com.qa.business.service;
 
-public class Service {
+import com.qa.account.application.Repo;
+import com.qa.persistence.domain.Account;
+
+public interface AccountService {
 	
 	Repo repo = new Repo();
 	int counter = 0;
@@ -10,7 +13,7 @@ public class Service {
 		counter++;
 	}
 	
-	public Account retrieveAccount(int accountId) {
+	public Account getAccount(int accountId) {
 		return repo.accountMap.get(accountId);
 	}
 	

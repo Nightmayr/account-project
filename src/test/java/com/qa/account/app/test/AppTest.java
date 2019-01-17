@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.qa.account.application.Account;
 import com.qa.account.application.Service;
+import com.qa.persistence.domain.Account;
 
 public class AppTest {
 
